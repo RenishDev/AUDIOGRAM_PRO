@@ -9,6 +9,9 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Loader2, Printer } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
+// Disable static generation for this page since it uses dynamic params and offline storage
+export const dynamic = 'force-dynamic';
+
 const LegendRow = ({ label, right, left, rColor = "text-red-600", lColor = "text-blue-600" }: { label: string, right: React.ReactNode, left: React.ReactNode, rColor?: string, lColor?: string }) => (
   <div className="grid grid-cols-[1fr_25px_25px] items-center border-b-[0.5pt] border-black py-0 last:border-0 h-[21px]">
     <span className="text-[7.5pt] font-medium px-2 uppercase tracking-tight">{label}</span>

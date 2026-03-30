@@ -15,6 +15,9 @@ import { useToast } from "@/hooks/use-toast";
 import { useOfflineStorage, useOfflineDoc } from "@/hooks/use-offline-storage";
 import { Skeleton } from "@/components/ui/skeleton";
 
+// Disable static generation for this page since it uses search params and offline storage
+export const dynamic = 'force-dynamic';
+
 function NewTestContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
