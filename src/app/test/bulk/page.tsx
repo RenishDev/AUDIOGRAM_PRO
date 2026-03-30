@@ -60,11 +60,11 @@ function BulkViewReportsContent() {
 
   if (ids.length === 0) {
     return (
-      <div className="min-h-screen bg-slate-50 p-4 font-body">
-        <div className="max-w-4xl mx-auto text-center py-12">
-          <p className="text-slate-500 font-bold uppercase tracking-widest mb-6">No records selected</p>
-          <Button variant="outline" onClick={() => router.push("/")} className="font-black text-[10px] uppercase">
-            <ArrowLeft className="w-4 h-4 mr-2" /> Back to Dashboard
+      <div className="min-h-screen bg-slate-50 p-2 xs:p-4 font-body">
+        <div className="max-w-4xl mx-auto text-center py-8 xs:py-12">
+          <p className="text-slate-500 font-bold uppercase tracking-widest mb-4 xs:mb-6 text-xs xs:text-sm">No records selected</p>
+          <Button variant="outline" onClick={() => router.push("/")} className="font-black text-[9px] xs:text-[10px] uppercase h-9 xs:h-10 px-3 xs:px-4">
+            <ArrowLeft className="w-3.5 xs:w-4 h-3.5 xs:h-4 mr-1.5 xs:mr-2" /> <span>Back</span>
           </Button>
         </div>
       </div>
@@ -72,22 +72,22 @@ function BulkViewReportsContent() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-100 p-3 md:p-6 print:p-0 print:bg-white font-body overflow-x-hidden">
+    <div className="min-h-screen bg-slate-100 p-2 xs:p-3 sm:p-4 md:p-6 print:p-0 print:bg-white font-body overflow-x-hidden">
       {/* Header Toolbar */}
-      <div className="max-w-4xl mx-auto no-print mb-6 flex flex-row gap-4 justify-between items-center bg-white p-3 md:p-4 rounded-xl shadow-sm border border-slate-200">
+      <div className="max-w-4xl mx-auto no-print mb-4 sm:mb-6 flex flex-col xs:flex-row xs:items-center gap-3 xs:gap-4 justify-between bg-white p-2.5 xs:p-3 md:p-4 rounded-lg sm:rounded-xl shadow-sm border border-slate-200">
         <div className="flex items-center gap-2">
-          <Button variant="ghost" onClick={() => router.push("/")} className="text-slate-500 font-black text-[10px] uppercase tracking-widest hover:bg-slate-50 px-2 md:px-4">
-            <ArrowLeft className="w-4 h-4 mr-2" /> <span className="hidden xs:inline">Dashboard</span>
+          <Button variant="ghost" onClick={() => router.push("/")} className="text-slate-500 font-black text-[9px] xs:text-[10px] uppercase tracking-widest hover:bg-slate-50 px-2 xs:px-3 md:px-4 h-9 xs:h-10">
+            <ArrowLeft className="w-3.5 xs:w-4 h-3.5 xs:h-4 mr-1 xs:mr-2" /> <span className="hidden xs:inline">Back</span>
           </Button>
-          <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+          <span className="text-[8px] xs:text-xs font-bold text-slate-400 uppercase tracking-widest">
             {ids.length} Report{ids.length !== 1 ? 's' : ''}
           </span>
         </div>
         <Button 
           onClick={handlePrint} 
-          className="bg-primary hover:bg-primary/90 text-white h-9 md:h-10 font-bold text-[10px] uppercase tracking-widest px-4 md:px-6 shadow-md"
+          className="bg-primary hover:bg-primary/90 text-white h-9 xs:h-10 font-bold text-[9px] xs:text-[10px] uppercase tracking-widest px-3 xs:px-4 md:px-6 shadow-md w-full xs:w-auto"
         >
-          <Printer className="w-4 h-4 mr-2" /> Print All Reports
+          <Printer className="w-3.5 xs:w-4 h-3.5 xs:h-4 mr-1.5 xs:mr-2" /> <span>Print</span>
         </Button>
       </div>
 

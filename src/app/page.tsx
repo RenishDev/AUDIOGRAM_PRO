@@ -314,30 +314,30 @@ export default function DashboardPage() {
   return (
     <div className="min-h-screen bg-[#F8FAFC] font-body">
       <nav className="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
-        <div className="max-w-[1600px] mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3 cursor-pointer" onClick={() => router.push("/")}>
-            <div className="bg-primary p-2 rounded-xl">
-              <Activity className="w-5 h-5 text-white" />
+        <div className="max-w-[1600px] mx-auto px-2 sm:px-4 h-14 sm:h-16 flex items-center justify-between">
+          <div className="flex items-center gap-2 sm:gap-3 cursor-pointer flex-1 min-w-0" onClick={() => router.push("/")}>
+            <div className="bg-primary p-1.5 sm:p-2 rounded-lg sm:rounded-xl flex-shrink-0">
+              <Activity className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             </div>
-            <span className="font-black text-xl text-primary tracking-tight uppercase">AudiogramPro</span>
+            <span className="font-black text-sm sm:text-lg md:text-xl text-primary tracking-tight uppercase truncate">AudiogramPro</span>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
              <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 bg-green-50 text-green-700 rounded-full text-[10px] font-black uppercase tracking-widest border border-green-100">
                <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-               Offline Mode - Local Storage
+               Offline Mode
              </div>
              <DataExportImportDialog />
-             <Button asChild className="font-bold bg-primary hover:bg-primary/90 transition-all active:scale-95 px-6">
+             <Button asChild className="font-bold bg-primary hover:bg-primary/90 transition-all active:scale-95 px-3 sm:px-6 h-9 sm:h-10 text-xs sm:text-sm">
               <Link href="/test/new">
-                <Plus className="w-4 h-4 mr-2" /> NEW DIAGNOSTIC
+                <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1 sm:mr-2" /> <span className="hidden xs:inline">NEW</span>
               </Link>
             </Button>
           </div>
         </div>
       </nav>
 
-      <main className="max-w-[1600px] mx-auto px-4 py-8 space-y-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <main className="max-w-[1600px] mx-auto px-2 sm:px-4 py-4 sm:py-6 md:py-8 space-y-4 sm:space-y-6 md:space-y-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6">
           <div className="space-y-1">
             <h1 className="text-4xl font-black text-slate-900 tracking-tight uppercase">Clinical Command</h1>
             <p className="text-slate-400 text-xs font-bold uppercase tracking-widest flex items-center gap-2">
@@ -362,23 +362,23 @@ export default function DashboardPage() {
                 </Badge>
               </div>
               
-              <div className="flex flex-col sm:flex-row items-center gap-3">
-                <div className="relative w-full sm:w-64 group">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-primary transition-colors" />
+              <div className="flex flex-col xs:flex-row xs:items-center gap-2 xs:gap-3 w-full">
+                <div className="relative w-full xs:flex-1 group">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 xs:w-4 xs:h-4 text-slate-400 group-focus-within:text-primary transition-colors" />
                   <Input 
-                    placeholder="Search identity or CR No..." 
-                    className="pl-10 h-10 bg-white border-slate-200 focus:ring-2 focus:ring-primary/20 focus:border-primary font-medium text-sm"
+                    placeholder="Search patient or CR..." 
+                    className="pl-9 xs:pl-10 h-9 xs:h-10 text-xs xs:text-sm bg-white border-slate-200 focus:ring-2 focus:ring-primary/20 focus:border-primary font-medium"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                   />
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-1.5 xs:gap-2 w-full xs:w-auto flex-wrap xs:flex-nowrap">
                   <Select value={sexFilter} onValueChange={setSexFilter}>
-                    <SelectTrigger className="h-10 w-[160px] bg-white border-slate-200 font-bold text-[9px] uppercase tracking-widest">
-                      <SelectValue placeholder="All Sex" />
+                    <SelectTrigger className="h-9 xs:h-10 flex-1 xs:flex-none xs:w-32 md:w-[140px] bg-white border-slate-200 font-bold text-[8px] xs:text-[9px] uppercase tracking-widest">
+                      <SelectValue placeholder="Sex" />
                     </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="all">All Biological Sex</SelectItem>
+                    <SelectContent className="text-xs">
+                      <SelectItem value="all">All Sex</SelectItem>
                       <SelectItem value="male">Male</SelectItem>
                       <SelectItem value="female">Female</SelectItem>
                       <SelectItem value="other">Other</SelectItem>
@@ -386,10 +386,10 @@ export default function DashboardPage() {
                   </Select>
                   
                   <Select value={dateFilter} onValueChange={setDateFilter}>
-                    <SelectTrigger className="h-10 w-[140px] bg-white border-slate-200 font-bold text-[9px] uppercase tracking-widest">
-                      <SelectValue placeholder="All Dates" />
+                    <SelectTrigger className="h-9 xs:h-10 flex-1 xs:flex-none xs:w-32 md:w-[120px] bg-white border-slate-200 font-bold text-[8px] xs:text-[9px] uppercase tracking-widest">
+                      <SelectValue placeholder="Date" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="text-xs">
                       <SelectItem value="all">All Dates</SelectItem>
                       <SelectItem value="today">Today</SelectItem>
                       <SelectItem value="week">This Week</SelectItem>

@@ -64,46 +64,37 @@ function ViewReportContent() {
   if (!isHydrated) return null;
   
   if (isLoading) return (
-    <div className="min-h-screen bg-slate-50 p-4 font-body">
-      <div className="max-w-4xl mx-auto space-y-6">
-        <div className="flex justify-between items-center bg-white p-4 rounded-xl shadow-sm border">
-          <Skeleton className="h-10 w-32" />
-          <Skeleton className="h-10 w-48" />
-        </div>
-        <div className="bg-white p-10 h-[297mm] shadow-2xl space-y-8 overflow-hidden">
-          <Skeleton className="h-12 w-full" />
-          <div className="grid grid-cols-3 gap-8">
-            <Skeleton className="h-24 w-full" />
-            <Skeleton className="h-24 w-full" />
-            <Skeleton className="h-24 w-full" />
-          </div>
+    <div className="min-h-screen bg-slate-50 p-2 xs:p-4 font-body">
+      <div className="max-w-4xl mx-auto space-y-4 xs:space-y-6">
+        <div className="flex flex-col xs:flex-row xs:justify-between xs:items-center bg-white p-2.5 xs:p-4 rounded-lg xs:rounded-xl shadow-sm border gap-3 xs:gap-4">
+          <Loader2 className="w-5 xs:w-6 h-5 xs:h-6 animate-spin text-slate-500" />
+          <p className="text-slate-600 font-medium text-sm">Loading report...</p>
         </div>
       </div>
     </div>
   );
   
-  if (!report) return <div className="p-10 text-center text-slate-500 font-bold uppercase tracking-widest">Record Not Found</div>;
+  if (!report) return <div className="p-4 xs:p-10 text-center text-slate-500 font-bold uppercase tracking-widest">Record Not Found</div>;
 
   return (
-    <div className="min-h-screen bg-slate-100 p-3 md:p-6 print:p-0 print:bg-white font-body overflow-x-hidden">
-      <div className="max-w-4xl mx-auto no-print mb-6 flex flex-row gap-4 justify-between items-center bg-white p-3 md:p-4 rounded-xl shadow-sm border border-slate-200">
-        <Button variant="ghost" onClick={() => router.push("/")} className="text-slate-500 font-black text-[10px] uppercase tracking-widest hover:bg-slate-50 px-2 md:px-4">
-          <ArrowLeft className="w-4 h-4 mr-2" /> <span className="hidden xs:inline">Dashboard</span>
+    <div className="min-h-screen bg-slate-100 p-2 xs:p-3 sm:p-4 md:p-6 print:p-0 print:bg-white font-body overflow-x-hidden">
+      <div className="max-w-4xl mx-auto no-print mb-4 sm:mb-6 flex flex-col xs:flex-row xs:items-center gap-3 xs:gap-4 justify-between bg-white p-2.5 xs:p-3 md:p-4 rounded-lg sm:rounded-xl shadow-sm border border-slate-200">
+        <Button variant="ghost" onClick={() => router.push("/")} className="text-slate-500 font-black text-[9px] xs:text-[10px] uppercase tracking-widest hover:bg-slate-50 px-2 xs:px-3 md:px-4 h-9 xs:h-10 w-fit">
+          <ArrowLeft className="w-3.5 xs:w-4 h-3.5 xs:h-4 mr-1 xs:mr-2" /> <span className="hidden xs:inline">Dashboard</span>
         </Button>
         <Button 
           onClick={handlePrint} 
-          className="bg-primary hover:bg-primary/90 text-white h-9 md:h-10 font-bold text-[10px] uppercase tracking-widest px-4 md:px-6 shadow-md"
+          className="bg-primary hover:bg-primary/90 text-white h-9 xs:h-10 font-bold text-[9px] xs:text-[10px] uppercase tracking-widest px-3 xs:px-4 md:px-6 shadow-md w-full xs:w-auto"
         >
-          <Printer className="w-4 h-4 mr-2" /> Print Medical Report
+          <Printer className="w-3.5 xs:w-4 h-3.5 xs:h-4 mr-1.5 xs:mr-2" /> <span>Print</span>
         </Button>
       </div>
 
-      <div className="w-full flex justify-center pb-8 print:block print:pb-0">
+      <div className="w-full flex justify-center pb-4 xs:pb-6 sm:pb-8 print:block print:pb-0">
         <div 
           style={{ 
             transform: scale < 1 ? `scale(${scale})` : 'none',
             transformOrigin: 'top center',
-            // Correct the height of the container to prevent large whitespace gaps after scaling
             height: scale < 1 ? `${297 * scale}mm` : 'auto',
             marginBottom: scale < 1 ? `${(297 * (1 - scale))}mm` : '0'
           }}

@@ -116,37 +116,37 @@ function NewTestContent() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] p-3 md:p-6 font-body">
-      <div className="max-w-[1400px] mx-auto space-y-6">
-        <header className="flex items-center justify-between no-print gap-4">
-          <div className="flex items-center gap-3">
-            <Button variant="outline" size="icon" onClick={() => router.back()} className="h-10 w-10 bg-white border-slate-200">
-              <ArrowLeft className="w-5 h-5 text-slate-500" />
+    <div className="min-h-screen bg-[#F8FAFC] p-2 xs:p-3 sm:p-4 md:p-6 font-body">
+      <div className="max-w-[1400px] mx-auto space-y-4 sm:space-y-6">
+        <header className="flex flex-col xs:flex-row xs:items-center justify-between no-print gap-3 xs:gap-4">
+          <div className="flex items-center gap-2 xs:gap-3 min-w-0">
+            <Button variant="outline" size="icon" onClick={() => router.back()} className="h-9 xs:h-10 w-9 xs:w-10 bg-white border-slate-200 flex-shrink-0">
+              <ArrowLeft className="w-4 xs:w-5 h-4 xs:h-5 text-slate-500" />
             </Button>
-            <h1 className="text-2xl font-black text-primary flex items-center gap-2 tracking-tight truncate">
-              <Activity className="w-6 h-6 shrink-0" />
-              <span className="truncate">{editId ? "Edit Diagnostic Record" : "New Diagnostic Record"}</span>
+            <h1 className="text-lg xs:text-xl sm:text-2xl font-black text-primary flex items-center gap-1 xs:gap-2 tracking-tight truncate">
+              <Activity className="w-5 xs:w-6 h-5 xs:h-6 shrink-0" />
+              <span className="truncate">{editId ? "Edit" : "New"} Record</span>
             </h1>
           </div>
-          <Button onClick={handleSave} disabled={saving} className="bg-primary hover:bg-primary/90 px-8 font-bold shadow-lg transition-transform active:scale-95">
-            {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4 mr-2" />}
-            SAVE CLINICAL RECORD
+          <Button onClick={handleSave} disabled={saving} className="bg-primary hover:bg-primary/90 px-4 xs:px-6 sm:px-8 font-bold shadow-lg transition-transform active:scale-95 h-9 xs:h-10 text-xs xs:text-sm w-full xs:w-auto">
+            {saving ? <Loader2 className="w-3.5 xs:w-4 h-3.5 xs:h-4 animate-spin" /> : <Save className="w-3.5 xs:w-4 h-3.5 xs:h-4 mr-1 xs:mr-2" />}
+            <span className="hidden xs:inline">SAVE</span>
           </Button>
         </header>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 items-start">
           <div className="lg:col-span-3 order-2 lg:order-1">
             <Card className="border-slate-200 shadow-sm">
-              <CardHeader className="py-4 border-b">
-                <CardTitle className="text-[10px] font-black uppercase tracking-widest text-slate-400">Patient Profile</CardTitle>
+              <CardHeader className="py-3 xs:py-4 border-b">
+                <CardTitle className="text-[9px] xs:text-[10px] font-black uppercase tracking-widest text-slate-400">Patient Profile</CardTitle>
               </CardHeader>
-              <CardContent className="p-6 space-y-5">
+              <CardContent className="p-3 xs:p-4 sm:p-6 space-y-4 sm:space-y-5">
                 <div className="space-y-1.5">
-                  <Label className="text-[10px] font-black uppercase text-slate-500">Full Name</Label>
+                  <Label className="text-[9px] xs:text-[10px] font-black uppercase text-slate-500">Full Name</Label>
                   <Input 
                     value={formData.patientName}
                     onChange={(e) => setFormData({...formData, patientName: e.target.value})}
-                    className="h-11 border-slate-200"
+                    className="h-9 xs:h-10 sm:h-11 border-slate-200 text-sm"
                     placeholder="e.g. John Doe"
                   />
                 </div>
