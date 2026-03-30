@@ -1,8 +1,5 @@
 "use client";
 
-// Disable static generation for this page since it uses offline storage
-export const dynamic = 'force-dynamic';
-
 import React, { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -48,6 +45,7 @@ export default function DashboardPage() {
   const { toast } = useToast();
   const { deleteRecord } = useOfflineStorage();
 
+  const [isMounted, setIsMounted] = useState(false);
   const [search, setSearch] = useState("");
   const [sexFilter, setSexFilter] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
@@ -56,6 +54,11 @@ export default function DashboardPage() {
   const [itemsPerPage, setItemsPerPage] = useState(10);
 
   const { data: reports, isLoading } = useOfflineCollection();
+
+  // Set mounted flag to prevent hydration mismatch
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Extract unique dates from reports
   const availableDates = useMemo(() => {
@@ -373,63 +376,67 @@ export default function DashboardPage() {
                   />
                 </div>
                 <div className="flex gap-1.5 xs:gap-2 w-full xs:w-auto flex-wrap xs:flex-nowrap">
-                  <Select value={sexFilter} onValueChange={setSexFilter}>
-                    <SelectTrigger className="h-9 xs:h-10 flex-1 xs:flex-none xs:w-32 md:w-[140px] bg-white border-slate-200 font-bold text-[8px] xs:text-[9px] uppercase tracking-widest">
-                      <SelectValue placeholder="Sex" />
-                    </SelectTrigger>
-                    <SelectContent className="text-xs">
-                      <SelectItem value="all">All Sex</SelectItem>
-                      <SelectItem value="male">Male</SelectItem>
-                      <SelectItem value="female">Female</SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  
-                  <Select value={dateFilter} onValueChange={setDateFilter}>
-                    <SelectTrigger className="h-9 xs:h-10 flex-1 xs:flex-none xs:w-32 md:w-[120px] bg-white border-slate-200 font-bold text-[8px] xs:text-[9px] uppercase tracking-widest">
-                      <SelectValue placeholder="Date" />
-                    </SelectTrigger>
-                    <SelectContent className="text-xs">
-                      <SelectItem value="all">All Dates</SelectItem>
-                      <SelectItem value="today">Today</SelectItem>
-                      <SelectItem value="week">This Week</SelectItem>
-                      <SelectItem value="month">This Month</SelectItem>
+                  {isMounted && (
+                    <>
+                      <Select value={sexFilter} onValueChange={setSexFilter}>
+                        <SelectTrigger className="h-9 xs:h-10 flex-1 xs:flex-none xs:w-32 md:w-[140px] bg-white border-slate-200 font-bold text-[8px] xs:text-[9px] uppercase tracking-widest">
+                          <SelectValue placeholder="Sex" />
+                        </SelectTrigger>
+                        <SelectContent className="text-xs">
+                          <SelectItem value="all">All Sex</SelectItem>
+                          <SelectItem value="male">Male</SelectItem>
+                          <SelectItem value="female">Female</SelectItem>
+                          <SelectItem value="other">Other</SelectItem>
+                        </SelectContent>
+                      </Select>
                       
-                      {/* Divider */}
-                      {availableDates.length > 0 && (
-                        <div className="px-2 py-1.5 text-[8px] font-bold text-slate-400 uppercase tracking-widest">
-                          Available Dates
-                        </div>
-                      )}
-                      
-                      {/* Available dates from data */}
-                      {availableDates.map(date => (
-                        <SelectItem key={date} value={date}>
-                          {new Date(date).toLocaleDateString('en-US', { 
-                            month: 'short', 
-                            day: 'numeric', 
-                            year: 'numeric' 
-                          })}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                      <Select value={dateFilter} onValueChange={setDateFilter}>
+                        <SelectTrigger className="h-9 xs:h-10 flex-1 xs:flex-none xs:w-32 md:w-[120px] bg-white border-slate-200 font-bold text-[8px] xs:text-[9px] uppercase tracking-widest">
+                          <SelectValue placeholder="Date" />
+                        </SelectTrigger>
+                        <SelectContent className="text-xs">
+                          <SelectItem value="all">All Dates</SelectItem>
+                          <SelectItem value="today">Today</SelectItem>
+                          <SelectItem value="week">This Week</SelectItem>
+                          <SelectItem value="month">This Month</SelectItem>
+                          
+                          {/* Divider */}
+                          {availableDates.length > 0 && (
+                            <div className="px-2 py-1.5 text-[8px] font-bold text-slate-400 uppercase tracking-widest">
+                              Available Dates
+                            </div>
+                          )}
+                          
+                          {/* Available dates from data */}
+                          {availableDates.map(date => (
+                            <SelectItem key={date} value={date}>
+                              {new Date(date).toLocaleDateString('en-US', { 
+                                month: 'short', 
+                                day: 'numeric', 
+                                year: 'numeric' 
+                              })}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
 
-                  <Select value={itemsPerPage.toString()} onValueChange={(val) => {
-                    setItemsPerPage(parseInt(val));
-                    setCurrentPage(1);
-                  }}>
-                    <SelectTrigger className="h-10 w-[120px] bg-white border-slate-200 font-bold text-[9px] uppercase tracking-widest">
-                      <SelectValue placeholder="Per Page" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="10">10</SelectItem>
-                      <SelectItem value="25">25</SelectItem>
-                      <SelectItem value="30">30</SelectItem>
-                      <SelectItem value="50">50</SelectItem>
-                      <SelectItem value="100">100</SelectItem>
-                    </SelectContent>
-                  </Select>
+                      <Select value={itemsPerPage.toString()} onValueChange={(val) => {
+                        setItemsPerPage(parseInt(val));
+                        setCurrentPage(1);
+                      }}>
+                        <SelectTrigger className="h-10 w-[120px] bg-white border-slate-200 font-bold text-[9px] uppercase tracking-widest">
+                          <SelectValue placeholder="Per Page" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="10">10</SelectItem>
+                          <SelectItem value="25">25</SelectItem>
+                          <SelectItem value="30">30</SelectItem>
+                          <SelectItem value="50">50</SelectItem>
+                          <SelectItem value="100">100</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </>
+                  )}
                   
                   {(search || sexFilter !== "all" || dateFilter !== "all" || itemsPerPage !== 10) && (
                     <Button variant="outline" size="icon" onClick={clearFilters} className="h-10 w-10 bg-white border-slate-200 text-slate-400 hover:text-destructive">
