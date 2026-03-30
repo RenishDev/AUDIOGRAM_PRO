@@ -3,9 +3,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  turbopack: {
-    root: 'E:\\xampp\\htdocs\\LAB',
-  },
   images: {
     remotePatterns: [
       {
