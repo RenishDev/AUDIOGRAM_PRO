@@ -3,17 +3,9 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": "nextjs",
-  "nodeVersion": "18.x",
   "env": {
     "NEXT_PUBLIC_ENV": "production",
     "NODE_ENV": "production",
     "SKIP_ENV_VALIDATION": "true"
-  },
-  "regions": ["iad1"],
-  "functions": {
-    "api/**": {
-      "memory": 1024,
-      "maxDuration": 60
-    }
   }
 }
