@@ -3,7 +3,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  swcMinify: true,
   productionBrowserSourceMaps: false,
   images: {
     remotePatterns: [
