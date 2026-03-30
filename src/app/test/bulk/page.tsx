@@ -1,6 +1,9 @@
 "use client";
 
-import React, { useState, useMemo, useEffect } from "react";
+// Disable static generation for this page since it uses search params and offline storage
+export const dynamic = 'force-dynamic';
+
+import React, { Suspense, useState, useMemo, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { AudiogramData, FREQUENCIES, calculatePTA } from "@/lib/audiogram-utils";
 import { useOfflineDoc } from "@/hooks/use-offline-storage";
@@ -8,9 +11,6 @@ import { AudiogramChart } from "@/components/audiogram/AudiogramChart";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Loader2, Printer } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
-
-// Disable static generation for this page since it uses search params and offline storage
-export const dynamic = 'force-dynamic';
 
 const LegendRow = ({ label, right, left, rColor = "text-red-600", lColor = "text-blue-600" }: { label: string, right: React.ReactNode, left: React.ReactNode, rColor?: string, lColor?: string }) => (
   <div className="grid grid-cols-[1fr_25px_25px] items-center border-b-[0.5pt] border-black py-0 last:border-0 h-[21px]">

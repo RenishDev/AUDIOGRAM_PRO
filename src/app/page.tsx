@@ -1,5 +1,8 @@
 "use client";
 
+// Disable static generation for this page since it uses offline storage
+export const dynamic = 'force-dynamic';
+
 import React, { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -33,9 +36,6 @@ import { AudiogramData, calculatePTA, getDiagnosisColorStyle } from "@/lib/audio
 import { useToast } from "@/hooks/use-toast";
 import { useOfflineCollection, useOfflineStorage } from "@/hooks/use-offline-storage";
 import { Skeleton } from "@/components/ui/skeleton";
-
-// Disable static generation for this page since it uses offline storage
-export const dynamic = 'force-dynamic';
 
 import { Badge } from "@/components/ui/badge";
 import { DataExportImportDialog } from "@/components/DataExportImportDialog";
