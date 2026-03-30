@@ -1,0 +1,16 @@
+.git
+.gitignore
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+node_modules
+.next
+.firebase
+temp_video_files
+video_output
+*.log
+.vscode
+.idea
+*.md
+!README.md

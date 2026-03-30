@@ -3,6 +3,8 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  swcMinify: true,
+  productionBrowserSourceMaps: false,
   images: {
     remotePatterns: [
       {
@@ -25,6 +27,10 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    optimizePackageImports: ['@radix-ui/react-icons'],
+  },
+  poweredByHeader: false,
 };
 
 export default nextConfig;
