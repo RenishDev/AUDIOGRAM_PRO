@@ -1,0 +1,17 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "hero-medical",
+      "description": "Professional medical diagnostic environment",
+      "imageUrl": "https://picsum.photos/seed/med1/1200/600",
+      "imageHint": "medical laboratory"
+    },
+    {
+      "id": "audiologist-pro",
+      "description": "Audiologist performing a hearing test",
+      "imageUrl": "https://picsum.photos/seed/audio1/800/600",
+      "imageHint": "hearing test"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "title": "AudiogramPro Offline - Complete Workflow Demo",
+  "description": "Professional demonstration of AudiogramPro system and workflow",
+  "duration_minutes": 10,
+  "created_date": "2026-03-23T19:28:43.660405",
+  "target_audience": [
+    "Healthcare Professionals",
+    "Clinic Administrators",
+    "Researchers",
+    "End Users"
+  ],
+  "total_scenes": 11,
+  "scenes": [
+    {
+      "id": 1,
+      "title": "Introduction",
+      "duration_seconds": 30,
+      "narration_length": 52,
+      "visual_notes_count": 4
+    },
+    {
+      "id": 2,
+      "title": "System Requirements & Installation",
+      "duration_seconds": 75,
+      "narration_length": 79,
+      "visual_notes_count": 6
+    },
+    {
+      "id": 3,
+      "title": "Dashboard Overview",
+      "duration_seconds": 75,
+      "narration_length": 96,
+      "visual_notes_count": 7
+    },
+    {
+      "id": 4,
+      "title": "Creating a New Record",
+      "duration_seconds": 90,
+      "narration_length": 82,
+      "visual_notes_count": 7
+    },
+    {
+      "id": 5,
+      "title": "Entering Hearing Test Data",
+      "duration_seconds": 90,
+      "narration_length": 110,
+      "visual_notes_count": 9
+    },
+    {
+      "id": 6,
+      "title": "Chart Visualization",
+      "duration_seconds": 45,
+      "narration_length": 82,
+      "visual_notes_count": 6
+    },
+    {
+      "id": 7,
+      "title": "Saving the Record",
+      "duration_seconds": 30,
+      "narration_length": 82,
+      "visual_notes_count": 6
+    },
+    {
+      "id": 8,
+      "title": "Viewing & Editing Records",
+      "duration_seconds": 60,
+      "narration_length": 86,
+      "visual_notes_count": 8
+    },
+    {
+      "id": 9,
+      "title": "Data Export & Backup",
+      "duration_seconds": 60,
+      "narration_length": 76,
+      "visual_notes_count": 8
+    },
+    {
+      "id": 10,
+      "title": "System Benefits & Privacy",
+      "duration_seconds": 30,
+      "narration_length": 68,
+      "visual_notes_count": 6
+    },
+    {
+      "id": 11,
+      "title": "Summary & Call to Action",
+      "duration_seconds": 15,
+      "narration_length": 54,
+      "visual_notes_count": 5
+    }
+  ]
+}

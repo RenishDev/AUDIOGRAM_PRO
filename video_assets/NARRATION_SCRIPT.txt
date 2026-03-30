@@ -1,0 +1,332 @@
+======================================================================
+AUDIOGRAMPRO VIDEO - COMPLETE NARRATION SCRIPT
+======================================================================
+
+
+SCENE 1: INTRODUCTION
+Duration: 30 seconds
+----------------------------------------------------------------------
+NARRATION:
+Welcome to AudiogramPro Offline - the modern solution for managing 
+                audiogram records with complete privacy and offline functionality.
+
+                In this video, we'll walk through the entire system, from setup to 
+                managing patient hearing test records.
+
+                Whether you're an audiologist, clinic administrator, or researcher, 
+                AudiogramPro makes hearing test management fast, secure, and simple.
+
+VISUAL NOTES:
+  • Show title slide
+  • Fade in software running
+  • Show key features as bullets
+  • Professional background music
+
+======================================================================
+
+SCENE 2: SYSTEM REQUIREMENTS & INSTALLATION
+Duration: 75 seconds
+----------------------------------------------------------------------
+NARRATION:
+Installation is incredibly simple. Just three things you need:
+
+                First - Node.js and npm must be installed. You probably already have this.
+
+                Second - You'll need about 500MB of free disk space.
+
+                Third - Just double-click the SETUP_AND_RUN.bat file.
+
+                The system handles everything automatically:
+                - Checks your system
+                - Installs all required packages
+                - Starts the development server
+                - Opens the application in your browser
+
+                On the first run, this takes about 2 minutes. After that, it's lightning fast.
+
+VISUAL NOTES:
+  • Show file explorer with SETUP_AND_RUN.bat
+  • Double-click file
+  • Show terminal with installation
+  • Show progress bar
+  • Browser opens to localhost:9002
+  • Application loaded
+
+======================================================================
+
+SCENE 3: DASHBOARD OVERVIEW
+Duration: 75 seconds
+----------------------------------------------------------------------
+NARRATION:
+And here we are - the AudiogramPro dashboard.
+
+                This is your command center for all audiogram records.
+
+                In the top right, you have three main action buttons:
+                - 'NEW DIAGNOSTIC' to create a new patient record
+                - 'EXPORT DATA' to backup your information
+                - 'IMPORT DATA' to restore from backups
+
+                Below that, you'll see a list of all existing patient records.
+
+                Each record shows the patient name, test date, and test type.
+
+                You can click on any record to view full details, edit, or print it.
+
+                The interface is clean and intuitive - no complicated menus.
+
+VISUAL NOTES:
+  • Show full dashboard
+  • Highlight NEW DIAGNOSTIC button
+  • Highlight EXPORT DATA button
+  • Highlight IMPORT DATA button
+  • Show record list
+  • Hover over records
+  • Show clean interface
+
+======================================================================
+
+SCENE 4: CREATING A NEW RECORD
+Duration: 90 seconds
+----------------------------------------------------------------------
+NARRATION:
+Now let's create a new audiogram record. Click the 'NEW DIAGNOSTIC' button.
+
+                You'll see a comprehensive form with all the information you need:
+
+                First section - Patient Information:
+                - Full name of the patient
+                - Date of birth
+                - Patient ID (optional)
+
+                Second section - Test Details:
+                - Date the test was performed
+                - Type of hearing test conducted
+
+                The interface guides you through each field with helpful labels.
+
+                If you skip a required field, the form will remind you before saving.
+
+VISUAL NOTES:
+  • Click NEW DIAGNOSTIC button
+  • Form page loads
+  • Show patient information fields
+  • Show test details section
+  • Scroll through form
+  • Show form validation
+  • Highlight required fields
+
+======================================================================
+
+SCENE 5: ENTERING HEARING TEST DATA
+Duration: 90 seconds
+----------------------------------------------------------------------
+NARRATION:
+Let's enter some sample data to see how it works.
+
+                First, we'll enter the patient's basic information.
+
+                Then we select the test date and type of hearing test.
+
+                Now comes the most important part - the hearing thresholds.
+
+                For each ear, we enter the decibel values at six standard frequencies:
+                - 250 Hz (low frequencies)
+                - 500 Hz
+                - 1000 Hz (mid frequencies)
+                - 2000 Hz
+                - 4000 Hz
+                - 8000 Hz (high frequencies)
+
+                Notice something cool - as you enter the values, 
+                the chart on the right updates in real-time!
+
+                You can see your audiogram taking shape as you type.
+
+                This gives you immediate feedback and helps catch errors.
+
+VISUAL NOTES:
+  • Type patient name
+  • Select birth date
+  • Select test date
+  • Select test type
+  • Start entering left ear thresholds
+  • Show chart updating
+  • Enter right ear thresholds
+  • Show complete chart
+  • Highlight chart clarity
+
+======================================================================
+
+SCENE 6: CHART VISUALIZATION
+Duration: 45 seconds
+----------------------------------------------------------------------
+NARRATION:
+Let me zoom in on the audiogram chart so you can see the professional visualization.
+
+                The chart displays hearing thresholds across the frequency spectrum.
+
+                The vertical axis shows the hearing level in decibels, with 0dB at the top 
+                representing normal hearing.
+
+                The two lines represent left ear and right ear.
+
+                You can immediately see any differences between the two ears.
+
+                The chart is clean, professional, and ready for printing or sharing.
+
+                This is exactly what you'd see in a professional audiology practice.
+
+VISUAL NOTES:
+  • Click on chart to maximize
+  • Point to frequency labels
+  • Point to dB scale
+  • Point to legend and colors
+  • Show data point accuracy
+  • Show full chart view
+
+======================================================================
+
+SCENE 7: SAVING THE RECORD
+Duration: 30 seconds
+----------------------------------------------------------------------
+NARRATION:
+When you're done entering data, just click the Save button.
+
+                The system immediately stores your record in the local browser database.
+
+                All your data stays on your computer - it never goes to the cloud.
+
+                You'll see a confirmation message letting you know the save was successful.
+
+                The data is stored in IndexedDB, which means it persists even if you 
+                close your browser or restart your computer.
+
+                Let's go back to the dashboard to see our new record added to the list.
+
+VISUAL NOTES:
+  • Scroll to Save button
+  • Click Save button
+  • Show loading state
+  • Show success notification
+  • Navigate back to dashboard
+  • Show new record in list
+
+======================================================================
+
+SCENE 8: VIEWING & EDITING RECORDS
+Duration: 60 seconds
+----------------------------------------------------------------------
+NARRATION:
+Clicking on a record from the dashboard takes you to the detailed view page.
+
+                Here you can see all the information for that patient:
+                - Complete patient details
+                - The full audiogram chart
+                - All the hearing threshold values
+
+                You have three main actions available:
+
+                First - Edit: You can modify any information if needed.
+
+                Second - Print: Generate a professional report for the patient.
+
+                Third - Delete: Remove the record permanently if needed.
+
+                Let me make a quick edit to show how easy it is.
+
+VISUAL NOTES:
+  • Click on record from dashboard
+  • Show complete record details
+  • Highlight Edit button
+  • Click Edit
+  • Form loads with data
+  • Make small change
+  • Click Save
+  • Show success message
+
+======================================================================
+
+SCENE 9: DATA EXPORT & BACKUP
+Duration: 60 seconds
+----------------------------------------------------------------------
+NARRATION:
+One of the most important features is the ability to backup your data.
+
+                All your records are stored locally, but it's smart to have an external backup.
+
+                Click the 'EXPORT DATA' button on the dashboard.
+
+                You have two export options:
+
+                First - CSV Format: This creates a spreadsheet file compatible with Excel.
+
+                Second - JSON Format: This is a complete backup of all your records.
+
+                Let me export to CSV so you can see the format.
+
+VISUAL NOTES:
+  • Click EXPORT DATA button
+  • Dialog opens showing options
+  • Explain CSV option
+  • Explain JSON option
+  • Click Export to CSV
+  • Show download notification
+  • Open file in Excel
+  • Show professional spreadsheet
+
+======================================================================
+
+SCENE 10: SYSTEM BENEFITS & PRIVACY
+Duration: 30 seconds
+----------------------------------------------------------------------
+NARRATION:
+Let me highlight the key benefits of AudiogramPro:
+
+                PRIVACY FIRST: All data stays on your computer. No cloud sync, 
+                no third-party services, no tracking.
+
+                OFFLINE FUNCTIONALITY: Works perfectly without internet connection.
+
+                FAST PERFORMANCE: All operations happen locally, so everything is lightning-fast.
+
+                PROFESSIONAL QUALITY: Charts and reports meet clinical standards.
+
+                EASY TO USE: The interface is clean and intuitive.
+
+                COMPLETE CONTROL: You own your data and can backup anytime.
+
+VISUAL NOTES:
+  • Show database icon (offline)
+  • Show security icons
+  • Show privacy checkmarks
+  • Show speed indicators
+  • Show professional chart
+  • Show ease of use indicators
+
+======================================================================
+
+SCENE 11: SUMMARY & CALL TO ACTION
+Duration: 15 seconds
+----------------------------------------------------------------------
+NARRATION:
+AudiogramPro Offline is a complete, professional solution for 
+                audiogram record management.
+
+                Whether you're running a clinic, conducting research, or managing 
+                your own hearing health, this application provides complete privacy, 
+                professional quality, and easy operation.
+
+                Getting started is simple: Just double-click SETUP_AND_RUN.bat 
+                and you're ready in minutes.
+
+                Thank you for watching, and welcome to AudiogramPro!
+
+VISUAL NOTES:
+  • Show full application
+  • Fade to benefits list
+  • Highlight setup file
+  • Final title card
+  • Credits
+
+======================================================================
