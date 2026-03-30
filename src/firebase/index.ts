@@ -7,6 +7,11 @@ import { getFirestore } from 'firebase/firestore'
 
 // IMPORTANT: DO NOT MODIFY THIS FUNCTION
 export function initializeFirebase() {
+  // Skip Firebase initialization during SSR (server-side rendering)
+  if (typeof window === 'undefined') {
+    return null;
+  }
+
   if (!getApps().length) {
     // Important! initializeApp() is called without any arguments because Firebase App Hosting
     // integrates with the initializeApp() function to provide the environment variables needed to
@@ -32,7 +37,10 @@ export function initializeFirebase() {
   return getSdks(getApp());
 }
 
-export function getSdks(firebaseApp: FirebaseApp) {
+export function getSdks(firebaseApp: FirebaseApp | null) {
+  if (!firebaseApp) {
+    return null;
+  }
   return {
     firebaseApp,
     auth: getAuth(firebaseApp),
