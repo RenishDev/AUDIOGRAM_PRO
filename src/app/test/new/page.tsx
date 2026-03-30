@@ -17,7 +17,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 // Disable static generation for this page since it uses search params and offline storage
 export const dynamic = 'force-dynamic';
-export const revalidate = 0;
 
 function NewTestContent() {
   const router = useRouter();

@@ -36,7 +36,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 // Disable static generation for this page since it uses offline storage
 export const dynamic = 'force-dynamic';
-export const revalidate = 0;
+
 import { Badge } from "@/components/ui/badge";
 import { DataExportImportDialog } from "@/components/DataExportImportDialog";
 import { StorageAnalytics } from "@/components/StorageAnalytics";
