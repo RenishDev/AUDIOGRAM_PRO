@@ -20,7 +20,8 @@ const LegendRow = ({ label, right, left, rColor = "text-red-600", lColor = "text
   </div>
 );
 
-export default function BulkViewReportsPage() {
+// Wrapper component that uses useSearchParams
+function BulkViewReportsContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [isHydrated, setIsHydrated] = useState(false);
@@ -97,6 +98,22 @@ export default function BulkViewReportsPage() {
         ))}
       </div>
     </div>
+  );
+}
+
+// Export with Suspense boundary to handle useSearchParams
+export default function BulkViewReportsPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-slate-100 p-3 md:p-6 flex items-center justify-center">
+        <div className="flex flex-col items-center gap-4">
+          <Loader2 className="w-8 h-8 animate-spin text-slate-500" />
+          <p className="text-slate-600 font-medium">Loading reports...</p>
+        </div>
+      </div>
+    }>
+      <BulkViewReportsContent />
+    </Suspense>
   );
 }
 

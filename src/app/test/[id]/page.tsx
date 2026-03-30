@@ -3,7 +3,7 @@
 // Disable static generation for this page since it uses dynamic params and offline storage
 export const dynamic = 'force-dynamic';
 
-import React, { useState, useMemo, useEffect } from "react";
+import React, { Suspense, useState, useMemo, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { AudiogramData, FREQUENCIES, calculatePTA } from "@/lib/audiogram-utils";
 import { useOfflineDoc } from "@/hooks/use-offline-storage";
@@ -20,7 +20,8 @@ const LegendRow = ({ label, right, left, rColor = "text-red-600", lColor = "text
   </div>
 );
 
-export default function ViewReportPage() {
+// Wrapper component that uses useParams
+function ViewReportContent() {
   const params = useParams();
   const router = useRouter();
   const id = params.id as string;
@@ -251,3 +252,22 @@ export default function ViewReportPage() {
     </div>
   );
 }
+
+// Export with Suspense boundary to handle useParams
+export default function ViewReportPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-slate-50 p-4 font-body">
+        <div className="max-w-4xl mx-auto space-y-6">
+          <div className="flex justify-between items-center bg-white p-4 rounded-xl shadow-sm border">
+            <Loader2 className="w-6 h-6 animate-spin text-slate-500" />
+            <p className="text-slate-600 font-medium">Loading report...</p>
+          </div>
+        </div>
+      </div>
+    }>
+      <ViewReportContent />
+    </Suspense>
+  );
+}
+
